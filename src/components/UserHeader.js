@@ -8,8 +8,22 @@ class UserHeader extends React.Component {
    }
 
   render() {
-    return <div>User Header</div>;
+    // find user we care about: http://jsonplaceholder.typicode.com/users/1
+    const user = this.props.users.find(user => user.id === this.props.userId);
+    if(!user){
+      return null; // component shows nothing
+    }
+
+    return <div className="header">{user.name}</div>;
   }
 }
 
-export default connect(null, { fetchUser })(UserHeader);
+// provides access to redux level state
+// provides component access to a prop called
+// this.prop.users
+// which has all the users we care about
+const mapStateToProps = (state) => {
+  return { users: state.users };
+};
+
+export default connect(mapStateToProps, { fetchUser })(UserHeader);

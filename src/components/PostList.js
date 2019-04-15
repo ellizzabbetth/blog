@@ -1,13 +1,14 @@
 import React from 'react';
 // wire up action creator
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions'
+import { fetchPostsAndUsers } from '../actions'
 import UserHeader from './UserHeader';
 
 class PostList extends React.Component {
 
   componentDidMount() {
-    this.props.fetchPosts();
+    // this.props.fetchPosts();
+    this.props.fetchPostsAndUsers();
   }
 
   // Endpoint: https://jsonplaceholder.typicode.com/posts
@@ -42,5 +43,5 @@ const mapStateToProps = (state) => {
 // export default PostList;
 export default connect(
   mapStateToProps,
-  { fetchPosts }
+  { fetchPostsAndUsers }
 )(PostList);

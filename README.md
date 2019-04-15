@@ -1,4 +1,6 @@
  git config --global http.sslVerify true
+http://jsonplaceholder.typicode.com/users/1
+https://lodash.com/docs/#memoize
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
